@@ -1,0 +1,102 @@
+Serial Debug
+---------------------
+python /home/greg/tmp/ESP8266_RTOS_SDK-master/tools/idf_monitor.py --baud 74880 --port "/dev/ttyUSB0" --toolchain-prefix "xtensa-lx106-elf-" --make "make" /home/greg/github/gwroblew/light-ivy/nosdk/build/obj/firmware.elf
+
+80MHz
+---------------------
+DRAM -> DRAM   45010
+DRAM -> IRAM   24094
+IRAM -> DRAM   24094
+IRAM -> IRAM   16384
+FLASH -> DRAM  12840 (23272)
+FLASH -> IRAM  9990 (16062)
+
+RAM -> DRAM    4432
+DRAM -> RAM    5258
+FLASH -> DRAM  8497
+
+160MHz
+---------------------
+DRAM -> DRAM   89043
+DRAM -> IRAM   48188
+IRAM -> DRAM   48188
+IRAM -> IRAM   32768
+FLASH -> DRAM  17429
+FLASH -> IRAM  14576
+
+RAM -> DRAM    5634
+DRAM -> RAM    6420
+FLASH -> DRAM  11314
+
+SCREEN         74.2 FPS
+
+ROT 2x2	       8 MPS (DRAM -> DRAM)
+ROT 2x2 + PERS 2.5 MPS
+
+TRI 8..24      71000 TPS
+TRI 8..32      50000 TPS
+TRI 4..12      112000 TPS
+TRI 8          164000 TPS
+TRI 16         103000 TPS
+TRI 32         68000 TPS
+
+========================================
+GB Memory Needs
+
+Min:
+8kB VRAM
+8kB WRAM
+2kB emulator
+4.1kB audio
+10.5kB frame buffer
+----------------------
+32.6kB
+
+Optimal:
++3kB emulator
++10 frame buffer
+16kB rom buffer
+8kB cart ram
+----------------------
+69.6kB
+
++512kB ROM
++16kB IRAM
+
+========================================
+GBC Memory Needs
+
+Min:
+16kB VRAM
+32kB WRAM
+2kB emulator
+4.1kB audio
+20.5kB frame buffer
+----------------------
+74.6kB
+
+Optimal:
++3kB emulator
+16kB rom buffer
+8kB cart ram
+----------------------
+101.6kB
+
++1MB ROM
++24kB IRAM
+
+========================================
+Game Gear Memory Needs
+
+Min:
+16kB VRAM
+8kB WRAM
+4kB emulator
+4.1kB audio
+20.5kB frame buffer
+----------------------
+52.6kB
+
+lcd_send_chunk ~3ms
+sound 2-3ms
+draw_gbc_line 5-6ms

@@ -1,0 +1,5 @@
+build/
+firmware/
+esp-utils/build/
+.vscode/
+oc.map
